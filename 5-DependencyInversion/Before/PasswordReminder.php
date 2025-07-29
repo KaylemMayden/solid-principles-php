@@ -3,8 +3,7 @@
 /**
  * DEPENDENCY INVERSION PRINCIPLE - BEFORE
  *
- * This code violates DIP because high-level modules depend
- * directly on low-level modules.
+ * This code violates DIP because high-level modules depend directly on low-level modules.
  */
 
 /**
@@ -71,28 +70,6 @@ class PasswordReminder
             echo "Sending password reminder to {$email}\n";
             // Email sending logic here
         }
-    }
-}
-
-/**
- * Another service that also violates DIP
- */
-class UserRepository
-{
-    protected $dbConnection;
-
-    /**
-     * Also tightly coupled to MySQL implementation
-     */
-    public function __construct(MySQLConnection $dbConnection)
-    {
-        $this->dbConnection = $dbConnection;
-    }
-
-    public function findUser($id)
-    {
-        $this->dbConnection->connect();
-        return $this->dbConnection->query("SELECT * FROM users WHERE id = {$id}");
     }
 }
 

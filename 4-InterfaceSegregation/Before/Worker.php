@@ -3,8 +3,7 @@
 /**
  * INTERFACE SEGREGATION PRINCIPLE - BEFORE
  *
- * This code violates ISP by forcing clients to implement
- * interfaces they don't use.
+ * This code violates ISP by forcing clients to implement interfaces they don't use.
  */
 
 /**

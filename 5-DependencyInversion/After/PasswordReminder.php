@@ -3,8 +3,7 @@
 /**
  * DEPENDENCY INVERSION PRINCIPLE - AFTER
  *
- * This code adheres to DIP by making both high-level and low-level modules
- * depend on abstractions (interfaces).
+ * This code adheres to DIP by making both high-level and low-level modules depend on abstractions (interfaces).
  */
 
 /**
@@ -49,36 +48,6 @@ class PasswordReminder
         }
 
         $this->connection->disconnect();
-    }
-}
-
-/**
- * Another high-level module depending on abstraction
- */
-class UserRepository
-{
-    protected $connection;
-
-    public function __construct(ConnectionInterface $connection)
-    {
-        $this->connection = $connection;
-    }
-
-    public function findUser($id)
-    {
-        $this->connection->connect();
-        $result = $this->connection->query("SELECT * FROM users WHERE id = {$id}");
-        $this->connection->disconnect();
-        return $result;
-    }
-
-    public function createUser($data)
-    {
-        $this->connection->connect();
-        $sql = "INSERT INTO users (name, email) VALUES ('{$data['name']}', '{$data['email']}')";
-        $result = $this->connection->query($sql);
-        $this->connection->disconnect();
-        return $result;
     }
 }
 

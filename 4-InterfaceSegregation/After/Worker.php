@@ -3,8 +3,7 @@
 /**
  * INTERFACE SEGREGATION PRINCIPLE - AFTER
  *
- * This code adheres to ISP by creating specific, focused interfaces
- * that clients only implement what they actually need.
+ * This code adheres to ISP by creating specific, focused interfaces that clients only implement what they actually need.
  */
 
 /**
@@ -67,40 +66,6 @@ class AndroidWorker implements WorkableInterface, ManageableInterface
     {
         $this->work();
         // No sleep for robots - they don't need it!
-    }
-}
-
-/**
- * AI worker that works but has different management needs
- */
-class AIWorker implements WorkableInterface, ManageableInterface
-{
-    public function work()
-    {
-        echo "AI is processing data and solving problems...\n";
-    }
-
-    public function beManaged()
-    {
-        echo "AI requires minimal management, initiating autonomous work...\n";
-        $this->work();
-    }
-}
-
-/**
- * Specialized worker that only sleeps (like a security guard on night shift)
- */
-class NightGuard implements SleepableInterface, ManageableInterface
-{
-    public function sleep()
-    {
-        echo "Night guard is resting between patrol rounds...\n";
-    }
-
-    public function beManaged()
-    {
-        echo "Night guard is on standby...\n";
-        $this->sleep();
     }
 }
 
