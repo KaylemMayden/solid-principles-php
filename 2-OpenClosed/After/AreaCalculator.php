@@ -3,8 +3,7 @@
 /**
  * OPEN-CLOSED PRINCIPLE - AFTER
  *
- * This code adheres to OCP by being open for extension
- * but closed for modification.
+ * This code adheres to OCP by being open for extension but closed for modification.
  */
 
 /**
@@ -71,27 +70,6 @@ class Triangle implements Shape
     public function area()
     {
         return 0.5 * $this->base * $this->height;
-    }
-}
-
-/**
- * Rectangle implementation of Shape
- * Another new shape added without modifying existing code!
- */
-class Rectangle implements Shape
-{
-    public $length;
-    public $width;
-
-    public function __construct($length, $width)
-    {
-        $this->length = $length;
-        $this->width = $width;
-    }
-
-    public function area()
-    {
-        return $this->length * $this->width;
     }
 }
 

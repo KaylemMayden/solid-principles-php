@@ -52,5 +52,4 @@ class SalesReporter
  * 2. Hard to test (authentication, database, formatting all coupled)
  * 3. Hard to change (changing output format requires modifying this class)
  * 4. Inflexible (can't reuse parts independently)
- * 5. Violates Single Responsibility Principle
  */

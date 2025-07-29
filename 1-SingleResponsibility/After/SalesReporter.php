@@ -41,18 +41,6 @@ class JSONOutput implements SalesOutputInterface
 }
 
 /**
- * CSV output formatter
- * Responsibility: Format sales data as CSV
- */
-class CSVOutput implements SalesOutputInterface
-{
-    public function output($sales)
-    {
-        return "Sales\n{$sales}";
-    }
-}
-
-/**
  * Handles all database operations for sales data
  * Responsibility: Data persistence and retrieval
  */
@@ -60,33 +48,12 @@ class SalesRepository
 {
     public function between($startDate, $endDate)
     {
-        // In a real application, this would use a proper database connection
-        // For demonstration purposes, we'll simulate the data
-        $mockSales = [
+        return collect([
             [
-                'created_at' => '2024-01-15 14:43:40',
-                'charge' => 21100, // in cents
+                'created_at' => new Carbon('2021-03-19 14:43:40'),
+                'charge' => '211',
             ],
-            [
-                'created_at' => '2024-01-20 09:30:00',
-                'charge' => 15000,
-            ],
-            [
-                'created_at' => '2024-01-25 16:22:15',
-                'charge' => 30500,
-            ],
-        ];
-
-        // Simple date filtering simulation
-        $filteredSales = array_filter($mockSales, function($sale) use ($startDate, $endDate) {
-            $saleDate = strtotime($sale['created_at']);
-            return $saleDate >= strtotime($startDate) && $saleDate <= strtotime($endDate);
-        });
-
-        // Calculate total and convert from cents to dollars
-        $total = array_sum(array_column($filteredSales, 'charge')) / 100;
-
-        return $total;
+        ])->whereBetween('created_at', [$startDate, $endDate])->sum('charge') / 100;
     }
 }
 

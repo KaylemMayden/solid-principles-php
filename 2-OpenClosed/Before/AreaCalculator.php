@@ -3,8 +3,7 @@
 /**
  * OPEN-CLOSED PRINCIPLE - BEFORE
  *
- * This code violates OCP because it requires modification
- * every time a new shape is added.
+ * This code violates OCP because it requires modification every time a new shape is added.
  */
 
 class Square

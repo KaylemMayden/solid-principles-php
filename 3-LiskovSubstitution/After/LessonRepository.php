@@ -3,8 +3,7 @@
 /**
  * LISKOV SUBSTITUTION PRINCIPLE - AFTER
  *
- * This code adheres to LSP by ensuring all implementations
- * return the same type and behave consistently.
+ * This code adheres to LSP by ensuring all implementations return the same type and behave consistently.
  */
 
 /**
@@ -51,57 +50,6 @@ class EloquentLessonRepository implements LessonRepositoryInterface
         ]);
 
         return $collection->toArray();
-    }
-}
-
-/**
- * API-based repository implementation
- */
-class APILessonRepository implements LessonRepositoryInterface
-{
-    public function getAll()
-    {
-        // Simulate API call and ensure consistent return type
-        $apiResponse = $this->callAPI();
-
-        // Always return an array, regardless of internal implementation
-        return $apiResponse['data'] ?? [];
-    }
-
-    private function callAPI()
-    {
-        // Simulate API response
-        return [
-            'data' => [
-                ['id' => 1, 'title' => 'Introduction to PHP', 'duration' => 30],
-                ['id' => 2, 'title' => 'Object-Oriented Programming', 'duration' => 45],
-                ['id' => 3, 'title' => 'SOLID Principles', 'duration' => 60],
-            ],
-            'status' => 'success'
-        ];
-    }
-}
-
-/**
- * Simple collection class to simulate Laravel's Collection
- */
-class LessonCollection
-{
-    private $items;
-
-    public function __construct(array $items)
-    {
-        $this->items = $items;
-    }
-
-    public function toArray()
-    {
-        return $this->items;
-    }
-
-    public function count()
-    {
-        return count($this->items);
     }
 }
 

@@ -3,8 +3,7 @@
 /**
  * LISKOV SUBSTITUTION PRINCIPLE - BEFORE
  *
- * This code violates LSP because implementations return different types,
- * making them not truly substitutable.
+ * This code violates LSP because implementations return different types, making them not truly substitutable.
  */
 
 interface LessonRepositoryInterface
